@@ -61,9 +61,16 @@ app.get('/productos',(req, res) =>{
   })
 });
 
+async function producto(){
+const producto = new contenedor("data");
+const i = parseInt(Math.random() * 3)
+const productoRandom = await producto.getById(i);
+console.log(productoRandom)
+}
+producto();
 
 app.get('/productosRandom', function(req, res) {
-  res.send(`<h1>Producto random/h1>`);
+  res.send(`<h1>${producto()}</h1>`);
 });
 
 
